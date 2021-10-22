@@ -16,7 +16,6 @@ async def on_message(message):
         await message.channel.send("Hello")
     fuck_detector(message)
 
-@client.event
 async def fuck_detector(message):
     if message.author == client.user:
         return
