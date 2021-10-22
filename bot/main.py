@@ -20,7 +20,6 @@ async def on_message(message):
 async def fuck_detector(message):
     if message.author == client.user:
         return
-    if message.content("fuck"):
-     await message.channel.send(message.replace("fuck", ""))
+    await message.channel.send(message.replace("fuck", ""))
 
 client.run(token)
