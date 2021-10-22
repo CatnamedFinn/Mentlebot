@@ -12,7 +12,7 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    fuckDetector(message)
+    fuck_detector(message)
     if message.content.startswith("!hello"):
         await message.channel.send("Hello")
     
