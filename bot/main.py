@@ -12,13 +12,15 @@ async def on_ready():
 async def on_message(message):
     if message.author == client.user:
         return
-    fuck_detector()
     if message.content.startswith("!hello"):
         await message.channel.send("Hello")
     
 
 @client.event
 async def fuck_detector(message):
-    await message.channel.send(message.replace("fuck", ""))
+    if message.author == client.user:
+        return
+    if message.content("fuck"):
+     await message.channel.send(message.replace("fuck", ""))
 
 client.run(token)
