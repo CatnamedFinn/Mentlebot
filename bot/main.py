@@ -1,6 +1,9 @@
 import discord
+import os
 
 client = discord.Client()
+
+token = os.environ.get('BOT_TOKEN')
 
 @client.event
 async def onReady():
@@ -19,4 +22,4 @@ async def onMessage(message):
 async def fuckDetector(message):
     await message.channel.send(message.replace("fuck", ""))
 
-client.run("OTAwOTk2MDk0MDg1OTc2MDc2.YXJcAA.vlgFeBnER7dsd5GjFznP3vP09Q8")
+client.run(token)
