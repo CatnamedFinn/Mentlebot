@@ -1,16 +1,15 @@
 import discord
 import os
 
+token = os.environ.get('DISCORD_TOKEN')
 client = discord.Client()
 
-token = os.environ.get('BOT_TOKEN')
-
 @client.event
-async def onReady():
+async def on_ready():
     print("We have logged in as {0.user}".format(client))
     
 @client.event
-async def onMessage(message):
+async def on_message(message):
     if message.author == client.user:
         return
     fuckDetector(message)
@@ -19,7 +18,7 @@ async def onMessage(message):
     
 
 @client.event
-async def fuckDetector(message):
+async def fuck_detector(message):
     await message.channel.send(message.replace("fuck", ""))
 
 client.run(token)
