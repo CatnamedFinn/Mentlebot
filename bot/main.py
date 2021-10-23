@@ -38,10 +38,11 @@ async def sus(ctx):
     message = ctx.message
     replyId = message.reference.message_id
     reply = await ctx.channel.fetch_message(replyId)
+    content = reply.content
 
-    await ctx.send(f"Your message is in reply to this one: '{reply}'")
+    await ctx.send(f"Your message is in reply to this one: '{content}'")
 
-    sussified = re.sub("[^s.*u.*s]", "█", reply)
+    sussified = re.sub("[^s.*u.*s]", "█", content)
     await ctx.send(sussified)
 
 
