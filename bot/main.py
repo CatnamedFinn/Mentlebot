@@ -30,4 +30,9 @@ async def ping(ctx, message):
     await ctx.send(message)
     await message.channel.send('I dunno man')
 
+
+@bot.command()
+async def test(ctx):
+    await ctx.send('I really dunno')
+
 bot.run(token)
