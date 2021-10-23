@@ -25,7 +25,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver5")
+        await message.channel.send("ver6")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     else:
