@@ -134,7 +134,7 @@ async def about(ctx):
     embed.add_field(name = "4k", value = "Posts an extremely sus picture. Gallery for said pictures is available at ___.", inline = True)
     embed.add_field(name = "Yo like the?", value = "Custom automatic reply feature. The bot replies to a message containing a custom keyword with 'You like the <custome message>'.", inline = True)
     embed.add_field(name = "Susfinder", value = "Replies to the command message with a message containing only the characters 's', 'u', and 's' in order.", inline = True)
-    embed,add_field(name = "Tic tac toe", value = "I'm pretty sure you know what this is.", inline = True)
+    embed.add_field(name = "Tic tac toe", value = "I'm pretty sure you know what this is.", inline = True)
 
     embed.set_footer(text = "This is a personal project so don't take this seriously.")
     
