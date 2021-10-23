@@ -59,7 +59,7 @@ async def _3d3t(ctx):
     )
 
 @bot.command()
-async def about(ctx):
+async def tortilla(ctx):
     print("Deez nuts")
     embed = discord.Embed(title = "What the frick is Mentlebot?", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
     
