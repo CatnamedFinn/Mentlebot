@@ -1,7 +1,8 @@
 import discord
-from discord.ext import commands
 import os
+import re
 
+from discord.ext import commands
 
 token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
@@ -26,13 +27,7 @@ async def on_message(message):
 
 
 @bot.command()
-async def ping(ctx, message):
-    await ctx.send(message)
-    await message.channel.send('I dunno man')
-
-
-@bot.command()
-async def test(ctx):
-    await ctx.send('I really dunno')
+async def sus(ctx, message):
+    await ctx.send(re.sub("[^s.*u.*s]", " ", message))
 
 bot.run(token)
