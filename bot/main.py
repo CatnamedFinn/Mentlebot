@@ -144,7 +144,7 @@ async def about(ctx, arg):
         embed = discord.Embed(title = "Susfinder", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
     elif arg == 9:
         embed = discord.Embed(title = "Tic Tac toe", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
-    else:
+    elif arg == None:
         embed = discord.Embed(title = "What the frick is Mentlebot?", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
 
         embed.set_thumbnail(url = "https://preview.redd.it/jpzji9ml0rq71.jpg?auto=webp&s=b005458162a35f0275d7edf8f5b15e7617efd983")
