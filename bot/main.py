@@ -30,11 +30,20 @@ async def on_message(message):
 @bot.command()
 async def sus(ctx):
     message = ctx.message
-    reply = message.reference.cached_message
+    reply = message.reference.cached_message.content
 
     await ctx.send(f"Your message is in reply to this one: '{reply}'")
 
     sussified = re.sub("[^s.*u.*s]", "█", reply)
     await ctx.send(sussified)
+
+
+@bot.command(name='3d3t')
+async def _3d3t(ctx):
+    await ctx.send(
+        "X | X | O"
+        "X |   | O"
+        "O | X | X"
+    )
 
 bot.run(token)
