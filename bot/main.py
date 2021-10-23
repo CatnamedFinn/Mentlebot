@@ -78,6 +78,7 @@ async def about(ctx):
     embed.add_field(name = "Susfinder", value = "Replies to the command message with a message containing only the characters 's', 'u', and 's' in order.", inline = True)
 
     embed.set.footer(text = "This is a personal project so don't take this seriously.")
+    print("deez nuts")
     
     await ctx.send(embed = embed)
 
