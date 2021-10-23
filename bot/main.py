@@ -15,7 +15,7 @@ async def on_ready():
 
 @bot.command()
 async def ping(ctx, message):
-    await ctx.send(message)
+    await ctx.channel.send(message)
 
 
 @client.event
@@ -24,8 +24,11 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver2")
-    await bot.process_commands(message)
+        await message.channel.send("ver3")
+    elif content.startswith("!hi"):
+        await message.channel.send("Hello.")
+    else:
+        await bot.process_commands(message)
 
 
 client.run(token)
