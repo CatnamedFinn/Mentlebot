@@ -17,18 +17,4 @@ async def ping(ctx, message):
     await message.channel.send('I dunno man')
 
 
-@bot.event
-async def on_message(message):
-    if message.author == bot.user:
-        return
-    content = message.content
-    if content.startswith("!ver"):
-        await message.channel.send("ver4")
-    elif content.startswith("!hi"):
-        await message.channel.send("Hello.")
-    else:
-        await message.channel.send("Attempting to call command.")
-        await bot.process_commands(message)
-
-
 bot.run(token)
