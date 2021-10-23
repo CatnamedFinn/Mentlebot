@@ -23,7 +23,7 @@ async def on_message(message):
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     else:
-        await message.channel.send("Attempting to call command.")
+        await message.channel.send("Attempting to call command: {message}")
         await bot.process_commands(message)
 
 
