@@ -13,6 +13,11 @@ async def on_ready():
     print("We have logged in as {0.user}".format(client))
 
 
+@bot.command()
+async def ping(ctx, message):
+    await ctx.send(message)
+
+
 @client.event
 async def on_message(message):
     if message.author == client.user:
@@ -22,9 +27,5 @@ async def on_message(message):
         await message.channel.send("ver1")
     await bot.process_commands(message)
 
-
-@bot.command()
-async def ping(ctx, message):
-    await ctx.send(message)
 
 client.run(token)
