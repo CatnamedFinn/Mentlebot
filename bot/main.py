@@ -23,6 +23,6 @@ async def on_message(message):
 
 @bot.command(name='ping')
 async def ping(ctx):
-    await ctx.channel.send("Pong.")
+    await ctx.send("Pong.")
 
 client.run(token)
