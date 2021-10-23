@@ -5,6 +5,7 @@ import os
 
 token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
+intents.members = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 
@@ -25,7 +26,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver6")
+        await message.channel.send("ver7")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     else:
