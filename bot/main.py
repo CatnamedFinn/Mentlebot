@@ -19,6 +19,7 @@ async def on_message(message):
     if message.author == bot.user:
         return
     content = message.content
+
     if content.startswith("!ver"):
         await message.channel.send("ver7")
     elif content.startswith("!hi"):
