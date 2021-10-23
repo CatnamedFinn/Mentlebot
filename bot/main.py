@@ -58,8 +58,6 @@ async def sussify(ctx):
     reply = await ctx.channel.fetch_message(replyId)
     content = reply.content
 
-    await ctx.send(f"Your message is in reply to this one: '{content}'")
-
     sussified = re.sub("[^s.*u.*s]", "█", content)
     await ctx.send(sussified)
 
@@ -76,6 +74,12 @@ async def _3d3t(ctx, arg1, arg2):
 
     if ticTacToeState == TicTacToeStateType.LOBBYING:
         # keep lobbying
+        if arg1 == 'stop':
+            await ctx.send("Aborting game now...")
+            ticTacToeState = TicTacToeStateType.NOT_PLAYING
+            ticTacToePlayers.clear
+            return
+
         playerCount = len(ticTacToePlayers)
         ticTacToePlayers.insert(ctx.author)
         await ctx.send(f"{ctx.author.display_name} has joined as Player {playerCount}!")
@@ -83,6 +87,7 @@ async def _3d3t(ctx, arg1, arg2):
         if playerCount == 2:
             await ctx.send("Max players reached. Starting game now!")
             ticTacToeState = TicTacToeStateType.PLAYING
+            ticTacToeTurn = 0
         return
 
     if ticTacToeState == TicTacToeStateType.PLAYING:
@@ -90,6 +95,7 @@ async def _3d3t(ctx, arg1, arg2):
         if arg1 == 'stop':
             await ctx.send("Ending game now...")
             ticTacToeState = TicTacToeStateType.NOT_PLAYING
+            ticTacToePlayers.clear
             return
         # not a player
         if ctx.author not in ticTacToePlayers:
