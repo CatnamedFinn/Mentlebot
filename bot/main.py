@@ -1,10 +1,11 @@
-from discord import Intents
+import discord
 from discord.ext import commands
 import os
 
 
 token = os.environ.get('DISCORD_TOKEN')
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 @bot.event
@@ -24,7 +25,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver5")
+        await message.channel.send("ver6")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     else:
