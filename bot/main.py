@@ -125,6 +125,7 @@ async def _3d3t(ctx, arg1, arg2):
 
 @bot.command()
 async def about(ctx, arg):
+    arg = int(arg)
     if arg == 1:
         embed = discord.Embed(title = "WD Ghost Free", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
     elif arg == 2:
