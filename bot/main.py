@@ -4,10 +4,7 @@ import os
 
 
 token = os.environ.get('DISCORD_TOKEN')
-
-intents = Intents.default()
-intents.members = True
-bot = commands.Bot(command_prefix='!', intents=intents)
+bot = commands.Bot(command_prefix='!')
 
 
 @bot.event
@@ -27,7 +24,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver4")
+        await message.channel.send("ver5")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     else:
