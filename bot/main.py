@@ -29,7 +29,7 @@ async def on_message(message):
     
     for key, value in keywords.items():
         if key in content.lower():
-            print(f"Yo, like the {value}?")
+            await message.channel.send(f"Yo, like the {value}?")
     
     if content.startswith("!ver"):
         await message.channel.send("ver8")
