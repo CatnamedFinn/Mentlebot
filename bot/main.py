@@ -124,9 +124,9 @@ async def ticTacToe(ctx, arg1):
 
 
 @bot.command()
-async def about(ctx, arg):
+async def about(ctx, arg=0):
     arg = int(arg)
-    print(arg)
+    await ctx.send(arg)
     if arg == 1:
         embed = discord.Embed(
             title="WD Ghost Free", description="Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color=discord.Color.blurple())
@@ -154,7 +154,7 @@ async def about(ctx, arg):
     elif arg == 9:
         embed = discord.Embed(
             title="Tic Tac toe", description="Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color=discord.Color.blurple())
-    elif arg == None:
+    else:
         embed = discord.Embed(title="What the frick is Mentlebot?",
                               description="Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color=discord.Color.blurple())
 
@@ -188,5 +188,4 @@ async def about(ctx, arg):
 
 # Path to the file, instead of using a slash use a period
 bot.load_extension("command.almond")
-
 bot.run(token)
