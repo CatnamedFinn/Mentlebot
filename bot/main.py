@@ -8,10 +8,6 @@ client = discord.Client()
 bot = commands.Bot(command_prefix="!", case_insensitive=True)
 
 
-async def bing(message):
-    await message.channel.send('Bong.')
-
-
 @client.event
 async def on_ready():
     print("We have logged in as {0.user}".format(client))
@@ -23,9 +19,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver0")
-    elif content.startswith("!bing"):
-        bing(message)
+        await message.channel.send("ver1")
     await bot.process_commands(message)
 
 
