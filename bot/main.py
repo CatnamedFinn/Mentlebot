@@ -5,6 +5,7 @@ import os
 
 token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
+intents.members = True
 bot = commands.Bot(command_prefix='!', intents=intents)
 
 
