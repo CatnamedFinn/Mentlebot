@@ -8,6 +8,12 @@ token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+tttBoard = [
+    [' ', ' ', ' '],
+    [' ', ' ', ' '],
+    [' ', ' ', ' ']
+]
+
 
 @bot.event
 async def on_ready():
@@ -21,7 +27,7 @@ async def on_message(message):
     content = message.content
 
     if content.startswith("!ver"):
-        await message.channel.send("ver7")
+        await message.channel.send("ver8")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     await bot.process_commands(message)
@@ -30,7 +36,8 @@ async def on_message(message):
 @bot.command()
 async def sus(ctx):
     message = ctx.message
-    reply = message.reference.cached_message.content
+    replyId = message.reference.message_id
+    reply = ctx.channel.fetch_message(replyId)
 
     await ctx.send(f"Your message is in reply to this one: '{reply}'")
 
@@ -41,9 +48,11 @@ async def sus(ctx):
 @bot.command(name='3d3t')
 async def _3d3t(ctx):
     await ctx.send(
-        "X | X | O"
-        "X |   | O"
-        "O | X | X"
+        "```"
+        "X | X | O\n"
+        "X |   | O\n"
+        "O | X | X\n"
+        "```"
     )
 
 bot.run(token)
