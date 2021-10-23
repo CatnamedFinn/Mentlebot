@@ -1,10 +1,11 @@
-from discord import Intents
+import discord
 from discord.ext import commands
 import os
 
 
 token = os.environ.get('DISCORD_TOKEN')
-bot = commands.Bot(command_prefix='!')
+intents = discord.Intents.default()
+bot = commands.Bot(command_prefix='!', intents=intents)
 
 
 @bot.event
