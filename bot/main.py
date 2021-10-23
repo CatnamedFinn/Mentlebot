@@ -21,7 +21,7 @@ async def on_message(message):
         await message.channel.send("test")
 
 
-@bot.command()
+@bot.command(name='ping')
 async def ping(ctx):
     await ctx.channel.send("Pong.")
 
