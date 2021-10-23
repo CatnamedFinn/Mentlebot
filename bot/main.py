@@ -3,14 +3,12 @@ from discord.ext import commands
 import os
 
 token = os.environ.get('DISCORD_TOKEN')
-client = discord.Client()
-
-bot = commands.Bot(command_prefix="!", case_insensitive=True)
+bot = commands.Bot(command_prefix="!")
 
 
-@client.event
+@bot.event
 async def on_ready():
-    print("We have logged in as {0.user}".format(client))
+    print("We have logged in as {0.user}".format(bot))
 
 
 @bot.command()
@@ -18,9 +16,9 @@ async def ping(ctx, message):
     await ctx.channel.send(message)
 
 
-@client.event
+@bot.event
 async def on_message(message):
-    if message.author == client.user:
+    if message.author == bot.user:
         return
     content = message.content
     if content.startswith("!ver"):
@@ -31,4 +29,4 @@ async def on_message(message):
         await bot.process_commands(message)
 
 
-client.run(token)
+bot.run(token)
