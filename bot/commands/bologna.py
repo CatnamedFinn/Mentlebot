@@ -9,11 +9,12 @@ stored = 'bologna'
 async def bologna(ctx, arg='', data=''):
     global stored
     if arg == 'read':
-        await ctx.send(f"Stored data: {stored}")
+        await ctx.send(f"Stored data: `{stored}`")
     elif arg == 'write':
         if data == '':
             await ctx.send("What do you want to store?")
         else:
+            await ctx.send(f"`{data}` has been stored.")
             stored = data
     else:
         await ctx.send("Do you want to `read` or `write`?")
