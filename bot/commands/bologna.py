@@ -6,12 +6,12 @@ stored = 'bologna'
 
 
 @commands.command()
-async def bologna(ctx, arg, data):
+async def bologna(ctx, arg='', data=''):
     global stored
     if arg == 'read':
         await ctx.send(f"Stored data: {stored}")
     elif arg == 'write':
-        if data == None:
+        if data == '':
             await ctx.send("What do you want to store?")
         else:
             stored = data
