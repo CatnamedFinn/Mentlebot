@@ -28,8 +28,11 @@ async def on_message(message):
 
 
 @bot.command()
-async def sus(ctx, arg):
-    sussified = re.sub("[^s.*u.*s]", "█", arg)
-    await ctx.send(f"Changed {arg} into {sussified}")
+async def sus(ctx, *args):
+    unsussed = ''
+    for word in args:
+        unsussed += word
+    sussified = re.sub("[^s.*u.*s]", "█", unsussed)
+    await ctx.send(sussified)
 
 bot.run(token)
