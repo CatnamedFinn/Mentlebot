@@ -89,14 +89,19 @@ async def _3d3t(ctx, arg1, arg2):
             await ctx.send("Ending game now...")
             ticTacToeState = TicTacToeStateType.NOT_PLAYING
             return
+        # not a player
+        if ctx.author not in ticTacToePlayers:
+            await ctx.send("You're not even playing right now.")
+            return
         # wrong player
-        if ctx.author is not ticTacToePlayers[ticTacToeTurn]:
+        if ctx.author != ticTacToePlayers[ticTacToeTurn]:
             await ctx.send("Now's not your turn.")
             return
-
-        await ctx.send("A game is already playing!")
+        await ctx.send(f"Player {ticTacToeTurn} has made their move.")
+        ticTacToeTurn = (ticTacToeTurn + 1) % 2
         return
 
+    '''
     board = ''
     for row in ticTacToeBoard:
         board += f"| {row[0]} | {row[1]} | {row[2]} |\n"
@@ -108,5 +113,6 @@ async def _3d3t(ctx, arg1, arg2):
         "```"
         "Player 2, specify your next coordinates."
     )
+    '''
 
 bot.run(token)
