@@ -26,6 +26,7 @@ async def on_message(message):
         await message.channel.send("ver0")
     elif content.startswith("!bing"):
         bing(message)
+    await bot.process_commands(message)
 
 
 @bot.command(name='ping')
