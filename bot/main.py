@@ -60,6 +60,7 @@ async def _3d3t(ctx):
 
 @bot.command()
 async def about(ctx):
+    print("Deez nuts")
     embed = discord.Embed(title = "What the frick is Mentlebot?", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
     
     embed.set_author(name = ctx.author.display_name, icon_url = ctx.author.avatar_url)
@@ -78,7 +79,6 @@ async def about(ctx):
     embed.add_field(name = "Susfinder", value = "Replies to the command message with a message containing only the characters 's', 'u', and 's' in order.", inline = True)
 
     embed.set.footer(text = "This is a personal project so don't take this seriously.")
-    print("deez nuts")
     
     await ctx.send(embed = embed)
 
