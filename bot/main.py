@@ -36,8 +36,8 @@ async def on_message(message):
 @bot.command()
 async def sus(ctx):
     message = ctx.message
-    replyId = await message.reference.message_id
-    reply = ctx.channel.fetch_message(replyId)
+    replyId = message.reference.message_id
+    reply = await ctx.channel.fetch_message(replyId)
 
     await ctx.send(f"Your message is in reply to this one: '{reply}'")
 
