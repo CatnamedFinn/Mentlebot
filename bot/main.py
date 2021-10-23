@@ -7,6 +7,12 @@ token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+keywords = {
+    'genshin': 'impact',
+    'phoenix': 'boss does it',
+    'so true': 'bestie',
+    'so untrue': 'worstie'
+}
 
 @bot.event
 async def on_ready():
@@ -20,7 +26,11 @@ async def on_message(message):
     if message.author.bot == True:
         return
     content = message.content
-
+    
+    for key, value in keywords.items():
+        if key in content.lower():
+            print(f"Yo, like the {value}?")
+    
     if content.startswith("!ver"):
         await message.channel.send("ver8")
     elif content.startswith("!hi"):
