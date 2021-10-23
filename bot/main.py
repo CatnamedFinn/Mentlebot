@@ -68,6 +68,8 @@ async def _3d3t(ctx, arg1, arg2):
 
     if ticTacToeState == TicTacToeStateType.NOT_PLAYING:
         # start lobbying
+        await ctx.send(f"{ctx.author.display_name} has joined as Player 1!")
+        await ctx.send("Awaiting one more player in the lobby.")
         ticTacToeState = TicTacToeStateType.LOBBYING
         ticTacToePlayers.insert(ctx.author)
         return
@@ -75,19 +77,16 @@ async def _3d3t(ctx, arg1, arg2):
     if ticTacToeState == TicTacToeStateType.LOBBYING:
         # keep lobbying
         if arg1 == 'stop':
-            await ctx.send("Aborting game now...")
+            await ctx.send("Disbanding lobby now...")
             ticTacToeState = TicTacToeStateType.NOT_PLAYING
             ticTacToePlayers.clear
             return
 
-        playerCount = len(ticTacToePlayers)
+        await ctx.send(f"{ctx.author.display_name} has joined as Player 2!")
+        await ctx.send("Max players reached. Starting game now!")
+        ticTacToeState = TicTacToeStateType.PLAYING
         ticTacToePlayers.insert(ctx.author)
-        await ctx.send(f"{ctx.author.display_name} has joined as Player {playerCount}!")
-
-        if playerCount == 2:
-            await ctx.send("Max players reached. Starting game now!")
-            ticTacToeState = TicTacToeStateType.PLAYING
-            ticTacToeTurn = 0
+        ticTacToeTurn = 0
         return
 
     if ticTacToeState == TicTacToeStateType.PLAYING:
