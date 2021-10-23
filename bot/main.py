@@ -40,7 +40,7 @@ async def on_message(message):
 
 # Path to the file, instead of using a slash use a period
 bot.load_extension("commands.almond")
-bot.load_extension("commands.bologne")
+bot.load_extension("commands.bologna")
 bot.load_extension("commands.about")
 bot.load_extension("commands.susfinder")
 bot.load_extension("commands.ticTacToe")
