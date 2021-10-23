@@ -187,5 +187,5 @@ async def about(ctx, arg=0):
     await ctx.send(embed=embed)
 
 # Path to the file, instead of using a slash use a period
-bot.load_extension("command.almond")
+bot.load_extension("commands.almond")
 bot.run(token)
