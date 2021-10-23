@@ -28,7 +28,7 @@ async def on_message(message):
 
 
 @bot.command()
-async def sus(ctx, message):
-    await ctx.send(re.sub("[^s.*u.*s]", "█", message.content))
+async def sus(ctx, arg):
+    await ctx.send(re.sub("[^s.*u.*s]", "█", arg))
 
 bot.run(token)
