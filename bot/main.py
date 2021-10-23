@@ -23,8 +23,8 @@ async def on_message(message):
     await bot.process_commands(message)
 
 
-@bot.command(name='ping')
-async def ping(message):
-    await message.channel.send("Pong.")
+@bot.command()
+async def ping(ctx, message):
+    await ctx.send(message)
 
 client.run(token)
