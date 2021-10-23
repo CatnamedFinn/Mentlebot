@@ -24,7 +24,7 @@ async def on_message(message):
         return
     content = message.content
     if content.startswith("!ver"):
-        await message.channel.send("ver1")
+        await message.channel.send("ver2")
     await bot.process_commands(message)
 
 
