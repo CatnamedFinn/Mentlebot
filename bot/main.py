@@ -63,7 +63,7 @@ async def sussify(ctx):
 
 
 @bot.command(name='3d3t')
-async def _3d3t(ctx, arg1, arg2):
+async def ticTacToe(ctx, arg1):
     global ticTacToeState, ticTacToePlayers, ticTacToeTurn, ticTacToeBoard
 
     if ticTacToeState == TicTacToeStateType.NOT_PLAYING:
@@ -125,25 +125,41 @@ async def _3d3t(ctx, arg1, arg2):
 
 @bot.command()
 async def about(ctx):
-    embed = discord.Embed(title = "What the frick is Mentlebot?", description = "Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color = discord.Color.blurple())
-    
-    embed.set_thumbnail(url = "https://preview.redd.it/jpzji9ml0rq71.jpg?auto=webp&s=b005458162a35f0275d7edf8f5b15e7617efd983")
+    embed = discord.Embed(title="What the frick is Mentlebot?",
+                          description="Hello fellow user, I am Mentlebot, a joint project between two IT random furries made with the goal for coding practice and fun.", color=discord.Color.blurple())
 
-    embed.add_field(name = "Features", value = "Below are the list of commands I can perform.", inline = False)
-    embed.add_field(name = "WD Ghost-Free", value = "Anti ghosting feature.", inline = True)
-    embed.add_field(name = "Party manager" , value = "Game party tracking feature." , inline = True)
-    embed.add_field(name = "Stuffify" , value = "Posts custom 'I'm stuff' images", inline = True)
-    embed.add_field(name = "Adit", value = "@s or DMs the member 'Adit'", inline = True)
-    embed.add_field(name = "Adit.int", value = "Posts a picture of Adit inting or feeding", inline = True)
-    embed.add_field(name = "Team.int", value = "Posts a picture of an entire team inting or feeding.", inline = True)
-    embed.add_field(name = "4k", value = "Posts an extremely sus picture.", inline = True)
-    embed.add_field(name = "Yo like the?", value = "Bot responds to a keyword with a custom message.", inline = True)
-    embed.add_field(name = "Susfinder", value = "Highlights 's', 'u' and 's' in a message", inline = True)
-    embed.add_field(name = "Tic tac toe", value = "I'm pretty sure you know what this is.", inline = True)
+    embed.set_thumbnail(
+        url="https://preview.redd.it/jpzji9ml0rq71.jpg?auto=webp&s=b005458162a35f0275d7edf8f5b15e7617efd983")
 
-    embed.set_footer(text = "This is a personal project so don't take this seriously.")
-    
-    await ctx.send(embed = embed)
+    embed.add_field(
+        name="Features", value="Below are the list of commands I can perform.", inline=False)
+    embed.add_field(name="WD Ghost-Free",
+                    value="Anti ghosting feature.", inline=True)
+    embed.add_field(name="Party manager",
+                    value="Game party tracking feature.", inline=True)
+    embed.add_field(name="Stuffify",
+                    value="Posts custom 'I'm stuff' images", inline=True)
+    embed.add_field(
+        name="Adit", value="@s or DMs the member 'Adit'", inline=True)
+    embed.add_field(
+        name="Adit.int", value="Posts a picture of Adit inting or feeding", inline=True)
+    embed.add_field(
+        name="Team.int", value="Posts a picture of an entire team inting or feeding.", inline=True)
+    embed.add_field(
+        name="4k", value="Posts an extremely sus picture.", inline=True)
+    embed.add_field(name="Yo like the?",
+                    value="Bot responds to a keyword with a custom message.", inline=True)
+    embed.add_field(
+        name="Susfinder", value="Highlights 's', 'u' and 's' in a message", inline=True)
+    embed.add_field(name="Tic tac toe",
+                    value="I'm pretty sure you know what this is.", inline=True)
 
+    embed.set_footer(
+        text="This is a personal project so don't take this seriously.")
+
+    await ctx.send(embed=embed)
+
+# Path to the file, instead of using a slash use a period
+bot.load_extension("command.almond")
 
 bot.run(token)
