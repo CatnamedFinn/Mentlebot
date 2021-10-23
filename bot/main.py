@@ -22,9 +22,7 @@ async def on_message(message):
         await message.channel.send("ver7")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
-    else:
-        await message.channel.send(f"Attempting to call command: {message}")
-        await bot.process_commands(message)
+    await bot.process_commands(message)
 
 
 @bot.command()
