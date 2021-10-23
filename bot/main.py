@@ -1,12 +1,11 @@
 import discord
+from discord.ext import commands
 import os
 
 token = os.environ.get('DISCORD_TOKEN')
 client = discord.Client()
 
-
-async def fuck_detector(message):
-    await message.channel.send("Woah")
+bot = commands.Bot(command_prefix="!", case_insensitive=True)
 
 
 @client.event
@@ -20,7 +19,10 @@ async def on_message(message):
         return
     if message.content.startswith("!hello"):
         await message.channel.send("test")
-    if message.content("shit"):
-        fuck_detector(message)
+
+
+@bot.command()
+async def ping(ctx):
+    await ctx.channel.send("Pong.")
 
 client.run(token)
