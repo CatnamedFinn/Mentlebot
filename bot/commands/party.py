@@ -59,6 +59,7 @@ async def party(ctx, action='', game=''):
     commander_id = ctx.author.id
     commander_name = ctx.author.display_name
 
+    await ctx.send(find_in_lobby)
     lobby_status = find_in_lobby(id=commander_id)
     await ctx.send(lobby_status)
 
