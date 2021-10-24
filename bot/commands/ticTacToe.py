@@ -21,7 +21,7 @@ ticTacToeBoard = [
 
 
 @commands.command()
-async def ticTacToe(ctx, arg1):
+async def tictactoe(ctx, arg1=''):
     global ticTacToeState, ticTacToePlayers, ticTacToeTurn, ticTacToeBoard
 
     if ticTacToeState == TicTacToeStateType.NOT_PLAYING:
@@ -83,4 +83,4 @@ async def ticTacToe(ctx, arg1):
 
 def setup(bot):
     # Every extension should have this function
-    bot.add_command(ticTacToe)
+    bot.add_command(tictactoe)

@@ -12,8 +12,8 @@ async def susfinder(ctx):
         await ctx.send("You need to reply to a message in order to sussify it.")
         return
 
-    replyId = message.reference.message_id
-    reply = await ctx.channel.fetch_message(replyId)
+    reply_id = message.reference.message_id
+    reply = await ctx.channel.fetch_message(reply_id)
     content = reply.content
 
     sussified = re.sub("[^s.*u.*s]", "█", content)
