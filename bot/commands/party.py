@@ -77,6 +77,8 @@ async def party(ctx, action='', game=''):
     commander_name = ctx.author.display_name
 
     lobby_status = find_in_lobby(user_id=commander_id)
+    ctx.send('Here is your lobby status:')
+    ctx.send(lobby_status)
 
     if action == 'disband':
         # check if the user is initiating a lobby
@@ -90,6 +92,8 @@ async def party(ctx, action='', game=''):
         party_list = ''
         for member in lobby_to_pop['party']:
             party_list += f" @{member['name']}, "
+
+        await ctx.send("Checkpoint reached")
 
         lobbies = games[lobbied_game]['lobbies']
         lobbies = [i for i in lobbies if i['initiator']['id'] != commander_id]
@@ -105,7 +109,7 @@ async def party(ctx, action='', game=''):
         if lobby_status['role'] == 'initiator':
             await ctx.send(
                 "You can't leave if you're initiating a game lobby! "
-                "Disband your lobby instead using `!party disband`")
+                "Disband your lobby instead using `!game disband`")
             return
 
         lobbied_game = lobby_status['game']
@@ -128,12 +132,12 @@ async def party(ctx, action='', game=''):
             if lobby_status['role'] == 'initiator':
                 await ctx.send(
                     "You're already initiating a pre-existing lobby! "
-                    "Disband your current lobby first using `!party disband`")
+                    "Disband your current lobby first using `!game disband`")
                 return
             else:
                 await ctx.send(
                     "You're already participating in another lobby! "
-                    "Leave your current lobby first using `!party leave`")
+                    "Leave your current lobby first using `!game leave`")
                 return
 
         # param check
@@ -170,12 +174,12 @@ async def party(ctx, action='', game=''):
             if lobby_status['role'] == 'initiator':
                 await ctx.send(
                     "You're already initiating a pre-existing lobby! "
-                    "Disband your current lobby first using `!party disband`")
+                    "Disband your current lobby first using `!game disband`")
                 return
             else:
                 await ctx.send(
                     "You're already participating in another lobby! "
-                    "Leave your current lobby first using `!party leave`")
+                    "Leave your current lobby first using `!game leave`")
                 return
 
         # check reply
