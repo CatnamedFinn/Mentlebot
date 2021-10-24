@@ -1,9 +1,8 @@
 import discord
 
 from discord.ext import commands
-from enum import Enum
 
-
+'''
 class TicTacToeStateType(Enum):
     NOT_PLAYING = 1
     LOBBYING = 2
@@ -18,6 +17,7 @@ ticTacToeBoard = [
     [' ', ' ', ' '],
     [' ', ' ', ' ']
 ]
+'''
 
 
 @commands.command()
