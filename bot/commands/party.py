@@ -56,7 +56,7 @@ async def party(ctx, action='', game=''):
 
             for lobby in lobbies:
                 initiator = lobby['initiator']
-                if user_id == initiator['id'] or user_name == initiator['name']:
+                if user_id == initiator['id']:
                     return {
                         'game': game,
                         'game_data': game_data,
