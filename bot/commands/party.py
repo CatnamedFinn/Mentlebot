@@ -9,7 +9,7 @@ games = {
         'max_players': 5,
         'lobbies': [
             {
-                'initiator': {'name': 'Stardust Reverie', 'id': '307505614509178891'},
+                'initiator': {'name': 'Stardust Reverie', 'id': 307505614509178891},
                 'party': [{'name:': 'amanda', 'id': '01'}, {'name': 'anastasia', 'id': '02'}]
             },
             {
