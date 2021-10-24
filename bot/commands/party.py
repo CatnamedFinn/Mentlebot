@@ -34,54 +34,54 @@ games = {
 }
 
 
-def find_in_lobby(user_id='', user_name=''):
-    '''
-        If user is in a lobby, returns a LobbyStatus.\n
-        LobbyStatus:\n
-            game: The lobby's game\n
-            game_data: The game object\n
-            role: Whether the user initiated this lobby or is participating in it\n
-            lobby: The lobby object the user is in\n
-        Otherwise, returns None.
-    '''
-    print('function was called')
-    for game, game_data in games.items():
-        print(f'function ran {game}')
-        lobbies = game_data['lobbies']
-
-        if len(lobbies) == 0:
-            continue
-
-        for lobby in lobbies:
-            initiator = lobby['initiator']
-            if user_id == initiator['id'] or user_name == initiator['name']:
-                return {
-                    'game': game,
-                    'game_data': game_data,
-                    'role': 'initiator',
-                    'lobby': lobby,
-                }
-            for member in lobby['party']:
-                if user_id == member['id'] or user_name == member['name']:
-                    return {
-                        'game': game,
-                        'game_data': game_data,
-                        'role': 'participator',
-                        'lobby': lobby,
-                    }
-    return None
-
-
 @commands.command(name='game')
 async def party(ctx, action='', game=''):
     global games
 
+    async def find_in_lobby(user_id='', user_name=''):
+        '''
+            If user is in a lobby, returns a LobbyStatus.\n
+            LobbyStatus:\n
+                game: The lobby's game\n
+                game_data: The game object\n
+                role: Whether the user initiated this lobby or is participating in it\n
+                lobby: The lobby object the user is in\n
+            Otherwise, returns None.
+        '''
+        await ctx.send('Called.')
+        for game, game_data in games.items():
+            await ctx.send(f'Checking {game}')
+            lobbies = game_data['lobbies']
+
+            if len(lobbies) == 0:
+                continue
+
+            for lobby in lobbies:
+                initiator = lobby['initiator']
+                await ctx.send(initiator)
+                if user_id == initiator['id'] or user_name == initiator['name']:
+                    return {
+                        'game': game,
+                        'game_data': game_data,
+                        'role': 'initiator',
+                        'lobby': lobby,
+                    }
+                for member in lobby['party']:
+                    if user_id == member['id'] or user_name == member['name']:
+                        return {
+                            'game': game,
+                            'game_data': game_data,
+                            'role': 'participator',
+                            'lobby': lobby,
+                        }
+        return None
+
     commander_id = ctx.author.id
     commander_name = ctx.author.display_name
 
-    await ctx.send(find_in_lobby)
-    lobby_status = find_in_lobby(user_id=commander_id)
-    await ctx.send('lol')
+    await ctx.send(f'{commander_id} / {commander_name}')
+    lobby_status = await find_in_lobby(user_id=commander_id)
+    await ctx.send('Passed.')
     await ctx.send(lobby_status == None)
     await ctx.send(lobby_status)
 
