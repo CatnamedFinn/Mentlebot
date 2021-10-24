@@ -22,6 +22,9 @@ ticTacToeBoard = [
 
 @commands.command()
 async def tictactoe(ctx, arg1=''):
+    ctx.send('Work in progress.')
+
+    '''
     global ticTacToeState, ticTacToePlayers, ticTacToeTurn, ticTacToeBoard
 
     if ticTacToeState == TicTacToeStateType.NOT_PLAYING:
@@ -65,8 +68,7 @@ async def tictactoe(ctx, arg1=''):
         await ctx.send(f"Player {ticTacToeTurn} has made their move.")
         ticTacToeTurn = (ticTacToeTurn + 1) % 2
         return
-
-    '''
+    
     board = ''
     for row in ticTacToeBoard:
         board += f"| {row[0]} | {row[1]} | {row[2]} |\n"
