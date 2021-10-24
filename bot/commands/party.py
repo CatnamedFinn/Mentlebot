@@ -82,7 +82,6 @@ async def party(ctx, action='', game=''):
 
     if action == 'disband':
         # check if the user is initiating a lobby
-        await ctx.send("Checkpoint 3 reached")
         if lobby_status == None or lobby_status['role'] != 'initiator':
             await ctx.send("You don't have an active game lobby!")
             return
@@ -90,18 +89,15 @@ async def party(ctx, action='', game=''):
         lobbied_game = lobby_status['game']
         lobby_to_pop = lobby_status['lobby']
 
-        await ctx.send("Checkpoint 2 reached")
-
         party_list = ''
         for member in lobby_to_pop['party']:
             party_list += f" @{member['name']}, "
 
-        await ctx.send("Checkpoint 1 reached")
-
         lobbies = games[lobbied_game]['lobbies']
-        lobbies = [i for i in lobbies if i['initiator']['id'] != commander_id]
+        games[lobbied_game]['lobbies'] = [
+            i for i in lobbies if i['initiator']['id'] != commander_id]
 
-        await ctx.send(f"Disbanding your {game} lobby containing:{party_list}")
+        await ctx.send(f"Disbanding your {lobbied_game} lobby containing:{party_list}")
         return
 
     if action == 'leave':
