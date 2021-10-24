@@ -1,9 +1,8 @@
 import discord
 
 from discord.ext import commands
-from enum import Enum
 
-
+'''
 class TicTacToeStateType(Enum):
     NOT_PLAYING = 1
     LOBBYING = 2
@@ -18,10 +17,14 @@ ticTacToeBoard = [
     [' ', ' ', ' '],
     [' ', ' ', ' ']
 ]
+'''
 
 
 @commands.command()
-async def ticTacToe(ctx, arg1):
+async def tictactoe(ctx, arg1=''):
+    ctx.send('Work in progress.')
+
+    '''
     global ticTacToeState, ticTacToePlayers, ticTacToeTurn, ticTacToeBoard
 
     if ticTacToeState == TicTacToeStateType.NOT_PLAYING:
@@ -65,8 +68,7 @@ async def ticTacToe(ctx, arg1):
         await ctx.send(f"Player {ticTacToeTurn} has made their move.")
         ticTacToeTurn = (ticTacToeTurn + 1) % 2
         return
-
-    '''
+    
     board = ''
     for row in ticTacToeBoard:
         board += f"| {row[0]} | {row[1]} | {row[2]} |\n"
@@ -83,4 +85,4 @@ async def ticTacToe(ctx, arg1):
 
 def setup(bot):
     # Every extension should have this function
-    bot.add_command(ticTacToe)
+    bot.add_command(tictactoe)
