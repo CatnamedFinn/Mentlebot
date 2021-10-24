@@ -158,7 +158,7 @@ async def party(ctx, action='', game=''):
 
         await ctx.send('Checkpoint 1')
         game_data = games[game]
-        games[game]['lobbies'].insert(
+        games[game]['lobbies'].append(
             {
                 'initiator': {
                     'name': commander_name,
