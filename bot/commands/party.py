@@ -38,7 +38,7 @@ games = {
 async def party(ctx, action='', game=''):
     global games
 
-    async def find_in_lobby(user_id='', user_name=''):
+    def find_in_lobby(user_id='', user_name=''):
         '''
             If user is in a lobby, returns a LobbyStatus.\n
             LobbyStatus:\n
@@ -49,7 +49,6 @@ async def party(ctx, action='', game=''):
             Otherwise, returns None.
         '''
         for game, game_data in games.items():
-            await ctx.send(f'Checking {game}')
             lobbies = game_data['lobbies']
 
             if len(lobbies) == 0:
@@ -57,9 +56,7 @@ async def party(ctx, action='', game=''):
 
             for lobby in lobbies:
                 initiator = lobby['initiator']
-                await ctx.send(f'Initiator name: {initiator["name"]} | Search name: {user_name}')
                 if user_id == initiator['id'] or user_name == initiator['name']:
-                    await ctx.send('Found it!')
                     return {
                         'game': game,
                         'game_data': game_data,
@@ -79,11 +76,7 @@ async def party(ctx, action='', game=''):
     commander_id = ctx.author.id
     commander_name = ctx.author.display_name
 
-    await ctx.send(f'{commander_id} / {commander_name}')
-    lobby_status = await find_in_lobby(user_id=commander_id)
-    await ctx.send('Passed.')
-    await ctx.send(lobby_status == None)
-    await ctx.send(lobby_status)
+    lobby_status = find_in_lobby(user_id=commander_id)
 
     if action == 'disband':
         # check if the user is initiating a lobby
