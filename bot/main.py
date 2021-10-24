@@ -35,7 +35,7 @@ async def on_message(message):
     for key, value in keywords.items():
         if key in content.lower():
             await message.channel.send(f"Yo, like the {value}?")
-    bot.process_commands()
+    bot.process_commands(message)
 
     
   
