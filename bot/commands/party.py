@@ -57,7 +57,7 @@ async def party(ctx, action='', game=''):
 
     await ctx.send('Running function...')
     commander_id = ctx.author.user_id
-    commander_name = ctx.author.displayed_name
+    commander_name = ctx.author.display_name
     await ctx.send(f'user {commander_name} with id {commander_id}')
 
     lobby_status = find_in_lobby(id=commander_id)
