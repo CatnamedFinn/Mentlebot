@@ -48,7 +48,6 @@ async def party(ctx, action='', game=''):
                 lobby: The lobby object the user is in\n
             Otherwise, returns None.
         '''
-        await ctx.send('Called.')
         for game, game_data in games.items():
             await ctx.send(f'Checking {game}')
             lobbies = game_data['lobbies']
@@ -58,8 +57,8 @@ async def party(ctx, action='', game=''):
 
             for lobby in lobbies:
                 initiator = lobby['initiator']
-                await ctx.send(f'Initiator ID: {initiator["id"]} | Search ID: {user_id}')
-                if user_id == initiator["id"]:
+                await ctx.send(f'Initiator name: {initiator["name"]} | Search name: {user_name}')
+                if user_id == initiator['id'] or user_name == initiator['name']:
                     await ctx.send('Found it!')
                     return {
                         'game': game,
@@ -68,7 +67,7 @@ async def party(ctx, action='', game=''):
                         'lobby': lobby,
                     }
                 for member in lobby['party']:
-                    if user_id == member["id"]:
+                    if user_id == member['id']:
                         return {
                             'game': game,
                             'game_data': game_data,
