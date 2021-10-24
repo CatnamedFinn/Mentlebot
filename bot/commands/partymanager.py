@@ -4,13 +4,10 @@ from discord.ext import commands
 roles = {
     '@lolplayers': 5
 }
-
-role = None
-maxPlayers = 0
 lobby = []
 
 @commands.command()
-async def party(ctx, role, maxPlayers):
+async def party2(ctx, role = None, maxPlayers = 0):
     role = str(role)
     maxPlayers = int(maxPlayers)
     #if the member does not input anything after command
@@ -51,4 +48,6 @@ async def removerole(ctx, role):
     else:
         await ctx.send("Please mention a valid role to remove.")
 
-
+def setup(bot):
+    # Every extension should have this function
+    bot.add_command(party2)

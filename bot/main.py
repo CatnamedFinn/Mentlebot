@@ -44,7 +44,7 @@ bot.load_extension("commands.almond")
 bot.load_extension("commands.bologna")
 
 bot.load_extension("commands.about")
-bot.load_extension("command.partymanager")
+bot.load_extension("commands.partymanager")
 
 bot.load_extension("commands.party")
 bot.load_extension("commands.susfinder")
