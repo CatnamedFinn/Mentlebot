@@ -56,7 +56,7 @@ async def party(ctx, action='', game=''):
         return None
 
     await ctx.send('Running function...')
-    commander_id = ctx.author.user_id
+    commander_id = ctx.author.id
     commander_name = ctx.author.display_name
     await ctx.send(f'user {commander_name} with id {commander_id}')
 
