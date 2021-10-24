@@ -9,7 +9,7 @@ games = {
         'max_players': 5,
         'lobbies': [
             {
-                'initiator': {'name': 'alex', 'id': '00'},
+                'initiator': {'name': 'Stardust Reverie', 'id': '307505614509178891'},
                 'party': [{'name:': 'amanda', 'id': '01'}, {'name': 'anastasia', 'id': '02'}]
             },
             {
@@ -81,6 +81,8 @@ async def party(ctx, action='', game=''):
 
     await ctx.send(find_in_lobby)
     lobby_status = find_in_lobby(id=commander_id)
+    await ctx.send('lol')
+    await ctx.send(lobby_status == None)
     await ctx.send(lobby_status)
 
     if action == 'disband':
