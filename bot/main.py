@@ -3,16 +3,20 @@ import os
 
 from discord.ext import commands
 
+
 token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
+#yo like the keywords
 keywords = {
     'genshin': 'impact',
     'phoenix': 'boss does it',
     'so true': 'bestie',
-    'so untrue': 'worstie'
+    'so untrue': 'worstie',
+    'danta': 'SUNNY OMORI'
 }
+
 
 @bot.event
 async def on_ready():
@@ -27,20 +31,20 @@ async def on_message(message):
         return
     content = message.content
     
+    #yo like the keyword execution
     for key, value in keywords.items():
         if key in content.lower():
             await message.channel.send(f"Yo, like the {value}?")
+
     
-    if content.startswith("!ver"):
-        await message.channel.send("ver8")
-    elif content.startswith("!hi"):
-        await message.channel.send("Hello.")
-    await bot.process_commands(message)
+  
 
 # Path to the file, instead of using a slash use a period
 bot.load_extension("commands.almond")
 bot.load_extension("commands.susfinder")
 bot.load_extension("commands.ticTacToe")
 bot.load_extension("commands.about")
+bot.load_extension("command.partymanager")
+
 
 bot.run(token)

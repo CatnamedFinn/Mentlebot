@@ -9,32 +9,38 @@ async def about(ctx, arg=0):
         
         embed.add_field(name = "Syntax", value = "!wd <your message> <mentioned members>", inline = False)
     elif arg == 2:
+         embed = discord.Embed(title = "Party manager", description = "Mentions the party role and starts a tally of members which have replied to the initial mention message.", color = discord.Color.blurple())
+
+         embed.add_field(name = "Syntax", value = "Configure: !party <game> <maximum members>, mention command: !party <role>, accept command: !down, stop command: !stopQ")
+    elif arg == 3:
         embed = discord.Embed(title = "Stuffify", description = "Creates and posts a 'I'm Stuff' macro meme with custom text", color = discord.Color.blurple())
         
         embed.add_field(name = "Syntax", value = "!stuffify <custom text>", inline = False)
-    elif arg == 3:
+    elif arg == 4:
         embed = discord.Embed(title = "Adit", description = "Mentions and DMs Adit", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "!adit", inline = False)
-    elif arg == 4:
+    elif arg == 5:
         embed = discord.Embed(title = "Adit.int", description = "Posts a picture of Adit inting or feeding in a game.", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "!adit.int", inline = False)
-    elif arg == 5:
+    elif arg == 6:
         embed = discord.Embed(title = "Team.int", description = "Posts a picture of the entire team inting or feeding in a game.", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "!team.int", inline = False)
-    elif arg == 6:
+    elif arg == 7:
         embed = discord.Embed(title = "4k", description = "Stores discord messages and quotes a random stored message or a random stored message from a specific member.", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "Store message: <reply to message> !4k, quote message: !4k, quote message from specific member: !4k <mention member>", inline = False)
-    elif arg == 7:
-        embed = discord.Embed(title = "Yo like the?", description = "Bot sends a message starting with 'Yo like the' followed by a custom message when it detects a keyword from a member.", color = discord.Color.blurple())
     elif arg == 8:
+        embed = discord.Embed(title = "Yo like the?", description = "Bot sends a message starting with 'Yo like the' followed by a custom message when it detects a keyword from a member.", color = discord.Color.blurple())
+
+        embed.add_field(name = "Syntax", value = "!yolikethe <keyword> <response>", inline = False)
+    elif arg == 9:
         embed = discord.Embed(title = "Susfinder", description = "Redacts a message, leaving only sussy characters", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "<reply to message> !susfinder", inline = False)
-    elif arg == 9:
+    elif arg == 10:
         embed = discord.Embed(title = "Tic Tac toe", description = "I think you know what this is.", color = discord.Color.blurple())
 
         embed.add_field(name = "Syntax", value = "WIP", inline = False)
