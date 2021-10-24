@@ -12,9 +12,10 @@ async def party2(ctx, role = None, maxPlayers = 0):
     maxPlayers = int(maxPlayers)
     #if the member does not input anything after command
     if role == None and maxPlayers == 0: 
-        await ctx.send("Please mention a role.")    
+        await ctx.send("Checkpoint 1")    
     #initiating a lobby
     elif role in roles.keys(): 
+        await ctx.send("Checkpoint 2")  
         if len(lobby) == 0: 
             lobby.append(ctx.author.display_name)
             await ctx.send(f"{ctx.author.mention} wants to play {role}. {len(lobby)}/{roles.get(role)}." )
@@ -32,6 +33,7 @@ async def party2(ctx, role = None, maxPlayers = 0):
                 await ctx.send(f"Max players reached. Players are{temp}")
                 lobby.clear()
     elif role != None and maxPlayers > 1:
+        await ctx.send("Checkpoint 3")  
         if '@' not in role: 
            await ctx.send("Please mention a role.")
         roles[role] = maxPlayers
