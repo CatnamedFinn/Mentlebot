@@ -78,7 +78,8 @@ async def party(ctx, action='', game=''):
 
     lobby_status = find_in_lobby(user_id=commander_id)
     await ctx.send('Here is your lobby status:')
-    await ctx.send(lobby_status)
+    if lobby_status != None:
+        await ctx.send(lobby_status)
 
     if action == 'disband':
         # check if the user is initiating a lobby
