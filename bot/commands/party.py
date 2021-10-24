@@ -60,6 +60,7 @@ async def party(ctx, action='', game=''):
                 initiator = lobby['initiator']
                 await ctx.send(initiator)
                 if user_id == initiator['id'] or user_name == initiator['name']:
+                    await ctx.send('Found it!')
                     return {
                         'game': game,
                         'game_data': game_data,
