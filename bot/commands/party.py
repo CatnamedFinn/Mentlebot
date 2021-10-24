@@ -58,6 +58,7 @@ async def party(ctx, action='', game=''):
     commander_name = ctx.author.displayed_name
 
     lobby_status = find_in_lobby(id=commander_id)
+    await ctx.send(lobby_status)
 
     if action == 'disband':
         # check if the user is initiating a lobby
@@ -210,6 +211,10 @@ async def party(ctx, action='', game=''):
                 f"{initiator}'s {lobbied_game} lobby is now full! Not accepting any more joins. "
                 "Don't forget to disband this lobby after you're finished.")
             return
+
+    await ctx.send(
+        "You need to specify what you want to do. "
+        "Either `create` `join` `leave` or `disband`")
 
 
 def setup(bot):
