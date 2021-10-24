@@ -156,8 +156,9 @@ async def party(ctx, action='', game=''):
                 f"Here are all the registered games:{game_list}")
             return
 
+        await ctx.send('Checkpoint 1')
         game_data = games[game]
-        game_data['lobbies'].insert(
+        games[game]['lobbies'].insert(
             {
                 'initiator': {
                     'name': commander_name,
@@ -166,6 +167,8 @@ async def party(ctx, action='', game=''):
                 'party': [],
             }
         )
+        await ctx.send('Checkpoint 2')
+
         await ctx.send(
             f"@{commander_name} has created a {game} lobby! Join them y'all. **(1 / {game_data['max_players']})**")
         return
