@@ -34,7 +34,7 @@ games = {
 }
 
 
-def find_in_lobby(id='', name=''):
+def find_in_lobby(user_id='', user_name=''):
     '''
         If user is in a lobby, returns a LobbyStatus.\n
         LobbyStatus:\n
@@ -54,7 +54,7 @@ def find_in_lobby(id='', name=''):
 
         for lobby in lobbies:
             initiator = lobby['initiator']
-            if id == initiator['id'] or name == initiator['name']:
+            if user_id == initiator['id'] or user_name == initiator['name']:
                 return {
                     'game': game,
                     'game_data': game_data,
@@ -62,7 +62,7 @@ def find_in_lobby(id='', name=''):
                     'lobby': lobby,
                 }
             for member in lobby['party']:
-                if id == member['id'] or name == member['name']:
+                if user_id == member['id'] or user_name == member['name']:
                     return {
                         'game': game,
                         'game_data': game_data,
@@ -80,7 +80,7 @@ async def party(ctx, action='', game=''):
     commander_name = ctx.author.display_name
 
     await ctx.send(find_in_lobby)
-    lobby_status = find_in_lobby(id=commander_id)
+    lobby_status = find_in_lobby(user_id=commander_id)
     await ctx.send('lol')
     await ctx.send(lobby_status == None)
     await ctx.send(lobby_status)
@@ -201,7 +201,7 @@ async def party(ctx, action='', game=''):
             return
 
         initiator = parsed.group(1)
-        lobby_status = find_in_lobby(name=initiator)
+        lobby_status = find_in_lobby(user_name=initiator)
 
         if lobby_status == None or lobby_status['role'] != 'initiator':
             await ctx.send(
