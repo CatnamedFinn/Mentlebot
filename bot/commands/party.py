@@ -58,8 +58,8 @@ async def party(ctx, action='', game=''):
 
             for lobby in lobbies:
                 initiator = lobby['initiator']
-                await ctx.send(initiator)
-                if user_id == initiator['id']:
+                await ctx.send(f'Initiator ID: {initiator["id"]} | Search ID: {user_id}')
+                if user_id == initiator["id"]:
                     await ctx.send('Found it!')
                     return {
                         'game': game,
@@ -68,7 +68,7 @@ async def party(ctx, action='', game=''):
                         'lobby': lobby,
                     }
                 for member in lobby['party']:
-                    if user_id == member['id']:
+                    if user_id == member["id"]:
                         return {
                             'game': game,
                             'game_data': game_data,
