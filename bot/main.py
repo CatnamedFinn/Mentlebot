@@ -33,7 +33,7 @@ async def on_message(message):
             await message.channel.send(f"Yo, like the {value}?")
 
     if content.startswith("!ver"):
-        await message.channel.send("ver8")
+        await message.channel.send("ver9")
     elif content.startswith("!hi"):
         await message.channel.send("Hello.")
     await bot.process_commands(message)
