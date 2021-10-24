@@ -7,11 +7,29 @@ from discord.ext import commands
 games = {
     'lol': {
         'max_players': 5,
-        'lobbies': [],
+        'lobbies': [
+            {
+                'initiator': {'name': 'alex', 'id': '00'},
+                'party': [{'name:': 'amanda', 'id': '01'}, {'name': 'anastasia', 'id': '02'}]
+            },
+            {
+                'initiator': {'name': 'bryan', 'id': '10'},
+                'party': [{'name': 'beatrice', 'id': '11'}, {'name': 'bella', 'id': '12'}]
+            },
+        ],
     },
     'genshin': {
         'max_players': 4,
-        'lobbies': [],
+        'lobbies': [
+            {
+                'initiator': {'name': 'chris', 'id': '20'},
+                'party': [{'name': 'charlene', 'id': '21'}, {'name': 'charlotte', 'id': '22'}]
+            },
+            {
+                'initiator': {'name': 'daniel', 'id': '30'},
+                'party': [{'name': 'daniella', 'id': '31'}, {'name': 'danielle', 'id': '32'}]
+            },
+        ],
     },
 }
 
@@ -26,11 +44,13 @@ def find_in_lobby(id='', name=''):
             lobby: The lobby object the user is in\n
         Otherwise, returns None.
     '''
+    print('function was called')
     for game, game_data in games.items():
+        print(f'function ran {game}')
         lobbies = game_data['lobbies']
 
         if len(lobbies) == 0:
-            return None
+            continue
 
         for lobby in lobbies:
             initiator = lobby['initiator']
