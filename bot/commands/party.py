@@ -20,8 +20,6 @@ games = {
 async def party(ctx, action='', game=''):
     global games
 
-    await ctx.send('Calling...')
-
     def find_in_lobby(id='', name=''):
         '''
             If user is in a lobby, returns a LobbyStatus.\n
@@ -57,8 +55,10 @@ async def party(ctx, action='', game=''):
                         }
         return None
 
+    await ctx.send('Running function...')
     commander_id = ctx.author.user_id
     commander_name = ctx.author.displayed_name
+    await ctx.send(f'user {commander_name} with id {commander_id}')
 
     lobby_status = find_in_lobby(id=commander_id)
     await ctx.send(lobby_status)
