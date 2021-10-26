@@ -45,10 +45,10 @@ async def on_message(message):
 
     # fx twitter link converter
     twitter_post_match = re.match(
-        "(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content)
+        "(https:\/\/)twitter.com\/([a-zA-Z0-9]+\/status\/[0-9]+)", content)
     if twitter_post_match != None:
         op = f"Originally sent by {author.mention}"
-        await message.channel.send(f"{twitter_post_match.group(1)}fx{twitter_post_match.group(2)}")
+        await message.channel.send(f"{op}\n{twitter_post_match.group(1)}fx{twitter_post_match.group(2)}")
         await message.delete()
 
     await bot.process_commands(message)
