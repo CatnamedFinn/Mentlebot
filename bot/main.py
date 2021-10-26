@@ -53,5 +53,7 @@ bot.load_extension("commands.tictactoe")
 
 bot.load_extension("commands.testMention")
 
+bot.load_extension("commands.fxregex")
+
 
 bot.run(token)
