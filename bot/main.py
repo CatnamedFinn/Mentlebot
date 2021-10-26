@@ -15,7 +15,8 @@ keywords = {
     'phoenix': 'boss does it',
     'so true': 'bestie',
     'so untrue': 'worstie',
-    'danta': 'SUNNY OMORI'
+    'danta': 'SUNNY OMORI',
+    'super': 'Idol的笑容 都没你的甜 八月正午的阳光 都没你耀眼 热爱 105 °C的你 滴滴清纯的蒸馏水'
 }
 
 
@@ -40,7 +41,7 @@ async def on_message(message):
     
 
     #fx twitter link converter
-    if "https://twitter.com/" in content:
+    if re.match("(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content):
         frontOfLink = re.search("https:\/\/", content)
         backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
         await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
