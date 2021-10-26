@@ -8,8 +8,6 @@ lobby = []
 
 @commands.command()
 async def party2(ctx, role = None, maxPlayers = 0):
-    role = str(role)
-    maxPlayers = int(maxPlayers)
     #if the member does not input anything after command
     if role == None and maxPlayers == 0: 
         await ctx.send("Checkpoint 1")    
@@ -38,17 +36,6 @@ async def party2(ctx, role = None, maxPlayers = 0):
            await ctx.send("Please mention a role.")
         roles[role] = maxPlayers
         await ctx.send(f"list of roles has been updated. Current party roles are: {roles.items()}.")
-
-#somehow figure out how to put this into !party command
-@commands.command()
-async def removerole(ctx, role):
-    if role is None:
-        await ctx.send("Please mention a role to remove.")
-    elif role == roles[role]:
-        del roles[role]
-        await ctx.send(f"{role} has been removed from the party list.")
-    else:
-        await ctx.send("Please mention a valid role to remove.")
 
 def setup(bot):
     # Every extension should have this function
