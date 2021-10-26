@@ -36,7 +36,7 @@ async def on_message(message):
         return
 
     # funny emoji
-    message.add_reaction('💩')
+    await message.add_reaction('💩')
 
     # yo like the keyword execution
     for key, value in keywords.items():
