@@ -1,5 +1,6 @@
 import discord
 import os
+import re
 
 from discord.ext import commands
 
@@ -31,10 +32,19 @@ async def on_message(message):
         return
     content = message.content
     
+
     #yo like the keyword execution
     for key, value in keywords.items():
         if key in content.lower():
             await message.channel.send(f"Yo, like the {value}?")
+    
+
+    #fx twitter link converter
+    frontOfLink = re.search("https:\/\/", content)
+    backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
+    await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
+    
+    
     await bot.process_commands(message)
 
     
