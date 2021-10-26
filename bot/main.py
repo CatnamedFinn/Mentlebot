@@ -41,10 +41,11 @@ async def on_message(message):
 
     #fx twitter link converter
     if "https://twitter.com/" in content:
-        await message.channel.delete(messageId)     
         frontOfLink = re.search("https:\/\/", content)
         backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
         await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
+        await message.delete(messageId)     
+        
            
     
     
