@@ -44,7 +44,7 @@ async def on_message(message):
         frontOfLink = re.search("https:\/\/", content)
         backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
         await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
-        await message.delete(messageId)     
+        await message.delete()     
         
            
     
