@@ -3,7 +3,7 @@ from discord.ext import commands
 
 @commands.command()
 async def mention(ctx):
-    mention = ctx.author.id
+    mention = ctx.author.user_id
     await ctx.send(f"Hey {mention.mention}!")
 
 def setup(bot):
