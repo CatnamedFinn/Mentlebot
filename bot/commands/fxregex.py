@@ -19,7 +19,7 @@ async def fx(ctx):
 
     await ctx.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
 
-    def setup(bot):
+def setup(bot):
     # Every extension should have this function
     bot.add_command(fx)
     
