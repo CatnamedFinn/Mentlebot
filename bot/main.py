@@ -31,7 +31,7 @@ async def on_message(message):
     if message.author.bot == True:
         return
     content = message.content
-    
+    messageId = message.id
 
     #yo like the keyword execution
     for key, value in keywords.items():
@@ -41,11 +41,11 @@ async def on_message(message):
 
     #fx twitter link converter
     if "https://twitter.com/" in content:
+        await message.channel.delete(messageId)     
         frontOfLink = re.search("https:\/\/", content)
         backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
         await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
-        await message.channel.delete(content)
-        
+           
     
     
     await bot.process_commands(message)
