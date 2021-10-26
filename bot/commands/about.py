@@ -11,7 +11,7 @@ async def about(ctx, arg=0):
     elif arg == 2:
          embed = discord.Embed(title = "Party manager", description = "Mentions the party role and starts a tally of members which have replied to the initial mention message.", color = discord.Color.blurple())
 
-         embed.add_field(name = "Syntax", value = "Configure: !party <game> <maximum members>, mention command: !party <role>, accept command: !down, stop command: !stopQ")
+         embed.add_field(name = "Syntax", value = "Add role command: !party <role> <maximum members>, remove role command: !removerole <role>, start command: !party <role>, stop command: !stopq, accept party command: !down, remove from party command: !up")
     elif arg == 3:
         embed = discord.Embed(title = "Stuffify", description = "Creates and posts a 'I'm Stuff' macro meme with custom text", color = discord.Color.blurple())
         
