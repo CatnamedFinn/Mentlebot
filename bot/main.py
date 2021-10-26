@@ -9,7 +9,7 @@ token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
 
-#yo like the keywords
+# yo like the keywords
 keywords = {
     'genshin': 'impact',
     'phoenix': 'boss does it',
@@ -27,33 +27,32 @@ async def on_ready():
 
 @bot.event
 async def on_message(message):
-    if message.author == bot.user:
-        return
-    if message.author.bot == True:
-        return
+    author = message.author
     content = message.content
-    messageId = message.id
 
-    #yo like the keyword execution
+    if author == bot.user:
+        return
+    if author.bot == True:
+        return
+
+    # funny emoji
+    message.add_reaction('💩')
+
+    # yo like the keyword execution
     for key, value in keywords.items():
         if key in content.lower():
             await message.channel.send(f"Yo, like the {value}?")
-    
 
-    #fx twitter link converter
-    if re.match("(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content) != None:
-        frontOfLink = re.search("https:\/\/", content)
-        backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
-        await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
-        await message.delete()     
-        
-           
-    
-    
+    # fx twitter link converter
+    twitter_post_match = re.match(
+        "(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content)
+    if twitter_post_match != None:
+        op = f"Originally sent by {author.mention}"
+        await message.channel.send(f"{twitter_post_match.group(1)}fx{twitter_post_match.group(2)}")
+        await message.delete()
+
     await bot.process_commands(message)
 
-    
-  
 
 # Path to the file, instead of using a slash use a period
 bot.load_extension("commands.almond")
