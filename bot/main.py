@@ -41,7 +41,7 @@ async def on_message(message):
     
 
     #fx twitter link converter
-    if re.match("(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content):
+    if re.match("(https:\/\/twitter.com\/[a-zA-Z0-9]+\/status\/[0-9]+)", content) != None:
         frontOfLink = re.search("https:\/\/", content)
         backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
         await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
