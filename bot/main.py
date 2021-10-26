@@ -51,4 +51,7 @@ bot.load_extension("commands.party")
 bot.load_extension("commands.susfinder")
 bot.load_extension("commands.tictactoe")
 
+bot.load_extension("commands.testMention")
+
+
 bot.run(token)
