@@ -41,7 +41,7 @@ async def on_message(message):
 
     # funny emoji
     if random.randrange(0, 10) == 0:
-        index = random.randrange(0, len(reactions))
+        index = random.randrange(0, len(reactions) - 1)
         await message.add_reaction(reactions[index])
 
     # yo like the keyword execution
