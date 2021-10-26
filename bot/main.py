@@ -1,4 +1,5 @@
 import discord
+import random
 import os
 import re
 
@@ -19,6 +20,9 @@ keywords = {
     'super': 'Idol的笑容 都没你的甜 八月正午的阳光 都没你耀眼 热爱 105 °C的你 滴滴清纯的蒸馏水'
 }
 
+# yo like the emojis
+reactions = ['💩', '🍆', '💯']
+
 
 @bot.event
 async def on_ready():
@@ -36,7 +40,9 @@ async def on_message(message):
         return
 
     # funny emoji
-    await message.add_reaction('💩')
+    if random.randrange(0, 10) == 0:
+        index = random.randrange(0, len(reactions))
+        await message.add_reaction(reactions[index])
 
     # yo like the keyword execution
     for key, value in keywords.items():
