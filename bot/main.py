@@ -40,9 +40,12 @@ async def on_message(message):
     
 
     #fx twitter link converter
-    frontOfLink = re.search("https:\/\/", content)
-    backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
-    await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
+    if "https://twitter.com/" in content:
+        frontOfLink = re.search("https:\/\/", content)
+        backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", content)
+        await message.channel.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
+        await message.channel.delete(content)
+        
     
     
     await bot.process_commands(message)
