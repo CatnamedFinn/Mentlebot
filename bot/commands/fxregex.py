@@ -15,7 +15,7 @@ async def fx(ctx):
     text = reply.content
 
     frontOfLink = re.search("https:\/\/", text)
-    backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/]+", text)
+    backOfLink = re.search("twitter.com\/[a-zA-Z0-9\/_?=]+", text)
 
     await ctx.send(f"{frontOfLink.group()}fx{backOfLink.group()}")
 
