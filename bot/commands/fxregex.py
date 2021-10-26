@@ -14,6 +14,14 @@ async def fx(ctx):
     reply = await ctx.channel.fetch_message(reply_id)
     text = reply.content
 
+    frontOfLink = re.sub("(https:\/\/)", text)
+    backOfLink = re.sub("(twitter.com\/[a-zA-Z0-9\/]+)", text)
+
+    await ctx.send(f"{frontOfLink}fx{backOfLink}")
+
+    def setup(bot):
+    # Every extension should have this function
+    bot.add_command(fx)
     
 
 
