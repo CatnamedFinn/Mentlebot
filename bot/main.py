@@ -27,7 +27,7 @@ keywords = {
 }
 
 # yo like the emojis
-reactions = ['💩', '🍆', '💯']
+reactions = ['💩', '🍆', '💯', '🤣', '👌', '👏']
 
 
 @bot.event
@@ -46,9 +46,10 @@ async def on_message(message):
         return
 
     # funny emoji
-    if random.randrange(0, 10) == 0:
-        index = random.randrange(0, len(reactions) - 1)
-        await message.add_reaction(reactions[index])
+    if random.randrange(0, 5) == 0:
+        for i in range(7):
+            index = random.randrange(0, len(reactions) - 1)
+            await message.add_reaction(reactions[index])
 
     # yo like the keyword execution
     for key, value in keywords.items():
@@ -73,7 +74,7 @@ async def almond(message):
     await channel.send('I love almonds.')
 
 
-@tasks.loop(seconds=5.0)
+@tasks.loop(seconds=30.0)
 async def announce_apple_pie():
     global apple_pies_eaten
     message_channel = bot.get_channel(channels['apple_pie_announcement'])
