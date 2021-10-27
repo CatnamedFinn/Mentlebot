@@ -12,7 +12,7 @@ bot = commands.Bot(command_prefix='!', intents=intents)
 
 # yo like the channels
 channels = {
-    'apple_pie_announcement': '901007512311070731',
+    'apple_pie_announcement': 901007512311070731,
 }
 apple_pies_eaten = 0
 
@@ -74,7 +74,7 @@ async def almond(message):
 
 
 @tasks.loop(seconds=5.0)
-async def called_once_a_day():
+async def announce_apple_pie():
     global apple_pies_eaten
     message_channel = bot.get_channel(channels['apple_pie_announcement'])
 
