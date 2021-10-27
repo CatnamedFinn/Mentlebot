@@ -81,6 +81,7 @@ async def announce_apple_pie():
     await message_channel.send(f"I love apple pies. I have eaten {apple_pies_eaten} of them.")
     apple_pies_eaten += 1
 
+announce_apple_pie.start()
 
 # Path to the file, instead of using a slash use a period
 bot.load_extension("commands.almond")
