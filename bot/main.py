@@ -3,12 +3,18 @@ import random
 import os
 import re
 
-from discord.ext import commands
+from discord.ext import commands, tasks
 
 
 token = os.environ.get('DISCORD_TOKEN')
 intents = discord.Intents.default()
 bot = commands.Bot(command_prefix='!', intents=intents)
+
+# yo like the channels
+channels = {
+    'apple_pie_announcement': '901007512311070731',
+}
+apple_pies_eaten = 0
 
 # yo like the keywords
 keywords = {
@@ -57,7 +63,23 @@ async def on_message(message):
         await message.channel.send(f"{op}\n{twitter_post_match.group(1)}fx{twitter_post_match.group(2)}")
         await message.delete()
 
+    almond(message)
+
     await bot.process_commands(message)
+
+
+async def almond(message):
+    channel = message.channel
+    await channel.send('I love almonds.')
+
+
+@tasks.loop(seconds=5.0)
+async def called_once_a_day():
+    global apple_pies_eaten
+    message_channel = bot.get_channel(channels['apple_pie_announcement'])
+
+    await message_channel.send(f"I love apple pies. I have eaten {apple_pies_eaten} of them.")
+    apple_pies_eaten += 1
 
 
 # Path to the file, instead of using a slash use a period
